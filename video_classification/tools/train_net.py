@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# modified from https://github.com/facebookresearch/SlowFast
 """Train a video classification model."""
 
 import numpy as np

@@ -1,4 +1,5 @@
-# modified from https://github.com/facebookresearch/deit
+# Copyright (c) 2015-present, Facebook, Inc.
+# All rights reserved.
 """
 Train and eval functions used in main.py
 """
@@ -25,11 +26,6 @@ def train_one_epoch(model: torch.nn.Module, criterion: DistillationLoss,
     metric_logger.add_meter('lr', utils.SmoothedValue(window_size=1, fmt='{value:.6f}'))
     header = 'Epoch: [{}]'.format(epoch)
     print_freq = 10
-
-    if epoch < 200:
-        model.module.stage_wise_prune = False
-    else:
-        model.module.stage_wise_prune = True
 
     for samples, targets in metric_logger.log_every(data_loader, print_freq, header):
         samples = samples.to(device, non_blocking=True)
@@ -74,7 +70,6 @@ def evaluate(data_loader, model, device):
     metric_logger = utils.MetricLogger(delimiter="  ")
     header = 'Test:'
 
-    # model.pos_embed.fill_(0)
     # switch to evaluation mode
     model.eval()
 

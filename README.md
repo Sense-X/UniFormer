@@ -30,7 +30,9 @@ This repo is the official implementation of  ["Uniformer: Unified Transformer fo
 
 **UniFormer** (**Uni**fied trans**Former**) is introduce in [arxiv](), which effectively unifies 3D convolution and spatiotemporal self-attention in a concise transformer format. We adopt local MHRA in shallow layers to largely reduce computation burden and global MHRA in deep layers to learn global token relation. 
 
-UniFormer achieves strong performance on video classification. With only ImageNet-1K pretraining,  our UniFormer achieves **82.9%/84.8%** top-1 accuracy on Kinetics-400/Kinetics-600, while requiring $\mathbf{10}\times$ fewer GFLOPs than other comparable methods (e.g., $\mathbf{16.7}\times$ fewer GFLOPs than [ViViT](https://openaccess.thecvf.com/content/ICCV2021/papers/Arnab_ViViT_A_Video_Vision_Transformer_ICCV_2021_paper.pdf) with JFT-300M pre-training). For Something-Something V1 and V2, our UniFormer achieves **60.9%** and **71.2%** top-1 accuracy respectively, which are new state-of-the-art performances. 
+UniFormer achieves strong performance on video classification. With only ImageNet-1K pretraining,  our UniFormer achieves **82.9%/84.8%** top-1 accuracy on Kinetics-400/Kinetics-600, while requiring **10x** fewer GFLOPs than other comparable methods (e.g., 16.7x fewer GFLOPs than [ViViT](https://openaccess.thecvf.com/content/ICCV2021/papers/Arnab_ViViT_A_Video_Vision_Transformer_ICCV_2021_paper.pdf) with JFT-300M pre-training). For Something-Something V1 and V2, our UniFormer achieves **60.9%** and **71.2%** top-1 accuracy respectively, which are new state-of-the-art performances. 
+
+![teaser](figures/framework.png)
 
 ## Main results on ImageNet-1K
 

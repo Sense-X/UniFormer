@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# modified from https://github.com/facebookresearch/SlowFast
 """Model construction functions."""
 
 import torch
