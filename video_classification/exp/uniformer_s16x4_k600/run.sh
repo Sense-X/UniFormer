@@ -18,6 +18,5 @@ python tools/run_net.py \
   DATA.TEST_CROP_SIZE 224 \
   TEST.NUM_ENSEMBLE_VIEWS 1 \
   TEST.NUM_SPATIAL_CROPS 1 \
-  DATA.MC True \
   RNG_SEED 6666 \
   OUTPUT_DIR $work_path

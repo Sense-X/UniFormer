@@ -16,7 +16,6 @@ python tools/run_net.py \
   SOLVER.BASE_LR 2e-4 \
   SOLVER.WARMUP_EPOCHS 5.0 \
   DATA.TEST_CROP_SIZE 224 \
-  DATA.MC True \
   TEST.NUM_ENSEMBLE_VIEWS 1 \
   TEST.NUM_SPATIAL_CROPS 1 \
   OUTPUT_DIR $work_path
