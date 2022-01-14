@@ -2,7 +2,7 @@
 
 This repo is the official implementation of  ["Uniformer: Unified Transformer for Efficient Spatiotemporal Representation Learning"](https://arxiv.org/abs/2201.04676). It currently includes code and models for the following tasks:
 
-- [x]  [Imgae Classification](image_classification)
+- [x]  [Image Classification](image_classification)
 
 - [x]  [Video Classification](video_classification)
 
