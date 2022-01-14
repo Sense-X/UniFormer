@@ -1,6 +1,6 @@
 # UniFormer
 
-This repo is the official implementation of  ["Uniformer: Unified Transformer for Efficient Spatiotemporal Representation Learning"](). It currently includes code and models for the following tasks:
+This repo is the official implementation of  ["Uniformer: Unified Transformer for Efficient Spatiotemporal Representation Learning"](https://arxiv.org/abs/2201.04676). It currently includes code and models for the following tasks:
 
 - [x]  [Imgae Classification](image_classification)
 
@@ -28,7 +28,7 @@ This repo is the official implementation of  ["Uniformer: Unified Transformer fo
 
 ## Introduction
 
-**UniFormer** (**Uni**fied trans**Former**) is introduce in [arxiv](), which effectively unifies 3D convolution and spatiotemporal self-attention in a concise transformer format. We adopt local MHRA in shallow layers to largely reduce computation burden and global MHRA in deep layers to learn global token relation. 
+**UniFormer** (**Uni**fied trans**Former**) is introduce in [arxiv](https://arxiv.org/abs/2201.04676), which effectively unifies 3D convolution and spatiotemporal self-attention in a concise transformer format. We adopt local MHRA in shallow layers to largely reduce computation burden and global MHRA in deep layers to learn global token relation. 
 
 UniFormer achieves strong performance on video classification. With only ImageNet-1K pretraining,  our UniFormer achieves **82.9%/84.8%** top-1 accuracy on Kinetics-400/Kinetics-600, while requiring **10x** fewer GFLOPs than other comparable methods (e.g., 16.7x fewer GFLOPs than [ViViT](https://openaccess.thecvf.com/content/ICCV2021/papers/Arnab_ViViT_A_Video_Vision_Transformer_ICCV_2021_paper.pdf) with JFT-300M pre-training). For Something-Something V1 and V2, our UniFormer achieves **60.9%** and **71.2%** top-1 accuracy respectively, which are new state-of-the-art performances. 
 
@@ -87,7 +87,14 @@ Code and models will be released in two weeks.
 If you find this repository useful, please use the following BibTeX entry for citation.
 
 ```
-wait for arxiv
+@misc{li2022uniformer,
+      title={Uniformer: Unified Transformer for Efficient Spatiotemporal Representation Learning}, 
+      author={Kunchang Li and Yali Wang and Peng Gao and Guanglu Song and Yu Liu and Hongsheng Li and Yu Qiao},
+      year={2022},
+      eprint={2201.04676},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
 ## License
