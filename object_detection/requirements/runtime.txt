@@ -1,0 +1,6 @@
+matplotlib
+mmpycocotools
+numpy
+six
+terminaltables
+timm

@@ -220,8 +220,8 @@ class UniFormer(nn.Module):
             drop_rate (float): dropout rate
             attn_drop_rate (float): attention dropout rate
             drop_path_rate (float): stochastic depth rate
-            norm_layer: (nn.Module): normalization layer
-            conv_stem: (bool): whether use overlapped patch stem
+            norm_layer (nn.Module): normalization layer
+            conv_stem (bool): whether use overlapped patch stem
         """
         super().__init__()
         self.num_classes = num_classes
@@ -303,7 +303,6 @@ class UniFormer(nn.Module):
         self.head = nn.Linear(self.embed_dim, num_classes) if num_classes > 0 else nn.Identity()
 
     def forward_features(self, x):
-        B = x.shape[0]
         x = self.patch_embed1(x)
         x = self.pos_drop(x)
         for blk in self.blocks1:
