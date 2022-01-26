@@ -185,7 +185,7 @@ If you find this repository useful, please use the following BibTeX entry for ci
 
 ```latex
 @misc{li2022uniformer,
-      title={Uniformer: Unified Transformer for Efficient Spatiotemporal Representation Learning}, 
+      title={UniFormer: Unified Transformer for Efficient Spatiotemporal Representation Learning}, 
       author={Kunchang Li and Yali Wang and Peng Gao and Guanglu Song and Yu Liu and Hongsheng Li and Yu Qiao},
       year={2022},
       eprint={2201.04676},
