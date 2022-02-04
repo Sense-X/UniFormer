@@ -18,6 +18,10 @@ It currently includes code and models for the following tasks:
 
 ## Updates
 
+***02/3/2022***
+
+Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Try out the Web Demo [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Andy1621/uniformer_image_demo)
+
 ***01/21/2022***
 
 [UniFormer for video](https://openreview.net/forum?id=nBU_u6DLvoK) is accepted by ICLR2022!
