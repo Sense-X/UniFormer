@@ -20,7 +20,9 @@ It currently includes code and models for the following tasks:
 
 ***02/3/2022***
 
-Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Try out the Web Demo [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Andy1621/uniformer_image_demo)
+Integrated into [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Have fun!
+- [Image Demo](https://huggingface.co/spaces/Andy1621/uniformer_image_demo)
+- [Video Demo](https://huggingface.co/spaces/Andy1621/uniformer_video_demo)
 
 ***01/21/2022***
 
