@@ -18,6 +18,9 @@ It currently includes code and models for the following tasks:
 
 ## Updates
 
+***02/9/2022***
+Some popular models and demos are updated in [hugging face](https://huggingface.co/Sense-X).
+
 ***02/3/2022***
 
 Integrated into [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Have fun!
@@ -77,18 +80,18 @@ More models with large resolution and token labeling will be released  soon.
 | UniFormer-B+TL  | ImageNet-1K | 384x384    | 86.0  | 50M     | 27.2G |
 | UniFormer-L+TL  | ImageNet-1K | 384x384    | 86.3  | 100M    | 39.2G |
 
-## Main results on Kinetics-400 video classification
+## Main results on Kinetics video classification
 
 Please see [video_classification](video_classification) for more details.
 
-| Model       | Pretrain    | #Frame | Sampling Method | FLOPs | K400 Top-1 | K600 Top-1 |
+| Model       | Pretrain    | #Frame | Sampling Stride | FLOPs | K400 Top-1 | K600 Top-1 |
 | ----------- | ----------- | ------ | --------------- | ----- | ---------- | ---------- |
-| UniFormer-S | ImageNet-1K | 16x1x4 | 16x4            | 167G  | 80.8       | 82.8       |
-| UniFormer-S | ImageNet-1K | 16x1x4 | 16x8            | 167G  | 80.8       | 82.7       |
-| UniFormer-S | ImageNet-1K | 32x1x4 | 32x4            | 438G  | 82.0       | -          |
-| UniFormer-B | ImageNet-1K | 16x1x4 | 16x4            | 387G  | 82.0       | 84.0       |
-| UniFormer-B | ImageNet-1K | 16x1x4 | 16x8            | 387G  | 81.7       | 83.4       |
-| UniFormer-B | ImageNet-1K | 32x1x4 | 32x4            | 1036G | 82.9       | 84.5*      |
+| UniFormer-S | ImageNet-1K | 16x1x4 | 4            | 167G  | 80.8       | 82.8       |
+| UniFormer-S | ImageNet-1K | 16x1x4 | 8            | 167G  | 80.8       | 82.7       |
+| UniFormer-S | ImageNet-1K | 32x1x4 | 4            | 438G  | 82.0       | -          |
+| UniFormer-B | ImageNet-1K | 16x1x4 | 4            | 387G  | 82.0       | 84.0       |
+| UniFormer-B | ImageNet-1K | 16x1x4 | 8            | 387G  | 81.7       | 83.4       |
+| UniFormer-B | ImageNet-1K | 32x1x4 | 4            | 1036G | 82.9       | 84.5*      |
 
 \* Since Kinetics-600 is too large to train (>1 month in single node with 8 A100 GPUs), we provide model trained in multi node (around 2 weeks with 32 V100 GPUs), but the result is lower due to the lack of tuning hyperparameters.
 
