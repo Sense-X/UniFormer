@@ -19,6 +19,7 @@ It currently includes code and models for the following tasks:
 ## Updates
 
 ***02/9/2022***
+
 Some popular models and demos are updated in [hugging face](https://huggingface.co/Sense-X).
 
 ***02/3/2022***
