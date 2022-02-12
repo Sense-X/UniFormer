@@ -54,7 +54,7 @@ We currenent release the code and models for:
 | UniFormer-B | 16x1x4 | 8            | 387G  | 83.4  | [google](https://drive.google.com/file/d/1aidHdSd-h65-_EUkfNOdMMw0ZB8G5maY/view?usp=sharing) | [google](https://drive.google.com/file/d/10wd98Tabutnc0W7c-5p63mwdF_bV-VNl/view?usp=sharing) | [run.sh](exp/uniformer_b16x8_k600/run.sh)/[config](exp/uniformer_s16x8_k600/config.yaml) |
 | UniFormer-B | 32x1x4 | 4            | 1036G | 84.5* | [google](https://drive.google.com/file/d/1-DwdVf8w8lYj-iFpU40pfEpog9VE5PQB/view?usp=sharing) | [google](https://drive.google.com/file/d/12YDYVKANqk8OJnw8UbOnGema3mf7kU4P/view?usp=sharing) | [run.sh](exp/uniformer_b32x4_k600/run.sh)/[config](exp/uniformer_b32x4_k600/config.yaml) |
 
-Since Kinetics-600 is too large to train (>1 month in single node with 8 A100 GPUs), we provide model trained in multi node (around 2 weeks with 32 V100 GPUs), but the result is lower due to the lack of tuning hyperparameters.
+\* Since Kinetics-600 is too large to train (>1 month in single node with 8 A100 GPUs), we provide model trained in multi node (around 2 weeks with 32 V100 GPUs), but the result is lower due to the lack of tuning hyperparameters.
 
 For Multi-node training, please install [submitit](https://github.com/facebookincubator/submitit).
 

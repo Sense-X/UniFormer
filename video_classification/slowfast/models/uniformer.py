@@ -398,6 +398,10 @@ class Uniformer(nn.Module):
     def get_pretrained_model(self, cfg):
         if cfg.UNIFORMER.PRETRAIN_NAME:
             checkpoint = torch.load(model_path[cfg.UNIFORMER.PRETRAIN_NAME], map_location='cpu')
+            if 'model' in checkpoint:
+                checkpoint = checkpoint['model']
+            elif 'model_state' in checkpoint:
+                checkpoint = checkpoint['model_state']
 
             state_dict_3d = self.state_dict()
             for k in checkpoint.keys():
