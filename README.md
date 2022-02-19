@@ -30,7 +30,7 @@ Integrated into [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%9
 
 ***01/21/2022***
 
-[UniFormer for video](https://openreview.net/forum?id=nBU_u6DLvoK) is accepted by ICLR2022!
+[UniFormer for video](https://openreview.net/forum?id=nBU_u6DLvoK) is accepted by **ICLR2022 (8868, Top 3%**)!
 
 ***01/19/2022***
 
@@ -94,6 +94,8 @@ Please see [video_classification](video_classification) for more details.
 | UniFormer-B | ImageNet-1K | 16x1x4 | 8            | 387G  | 81.7       | 83.4       |
 | UniFormer-B | ImageNet-1K | 32x1x4 | 4            | 1036G | 82.9       | 84.5*      |
 
+>  \#Frame = \#input_frame x \#crop x \#clip
+
 \* Since Kinetics-600 is too large to train (>1 month in single node with 8 A100 GPUs), we provide model trained in multi node (around 2 weeks with 32 V100 GPUs), but the result is lower due to the lack of tuning hyperparameters.
 
 ## Main results on Something-Something video classification
@@ -110,6 +112,8 @@ Please see [video_classification](video_classification) for more details.
 | UniFormer-B | K600     | 16x3x1 | 290G  | 58.8       | 70.2       |
 | UniFormer-B | K400     | 32x3x1 | 777G  | 60.9       | 71.1       |
 | UniFormer-B | K600     | 32x3x1 | 777G  | 61.0       | 71.2       |
+
+> \#Frame = \#input_frame x \#crop x \#clip
 
 ## Main results on COCO object detection
 

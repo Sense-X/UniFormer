@@ -29,7 +29,11 @@ We currenent release the code and models for:
 ### Note
 
 - All the `config.yaml` in our `exp` are **NOT** the training config actually used, since some hyperparameters are **changed** in the `run.sh` or `test.sh`.
-- All the models are pretrained on ImageNet-1K without [Token Labeling](https://arxiv.org/abs/2104.10858) and [Layer Scale](https://arxiv.org/abs/2103.17239). You can find those pre-trained models in [image_classification](../image_classification).
+- All the models are pretrained on ImageNet-1K without [Token Labeling](https://arxiv.org/abs/2104.10858) and [Layer Scale](https://arxiv.org/abs/2103.17239). You can find those pre-trained models in [image_classification](../image_classification). Reason can be found in [issue \#12](https://github.com/Sense-X/UniFormer/issues/12#issuecomment-1044001497).
+-  \#Frame = \#input_frame x \#crop x \#clip
+  - \#input_frame means how many frames are input for model per inference
+  - \#crop means spatial crops (e.g., 3 for left/right/center)
+  - \#clip means temporal clips (e.g., 4 means repeted sampling four clips with different start indices) 
 
 ### Kinetics-400
 
