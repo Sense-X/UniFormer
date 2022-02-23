@@ -405,7 +405,7 @@ class UniFormer(nn.Module):
 def uniformer_small(pretrained=True, **kwargs):
     model = UniFormer(
         depth=[3, 4, 8, 3],
-        embed_dim=[64, 128, 320, 512], head_dim=64, mlp_ratio=4, qkv_bias=True,
+        embed_dim=[64, 128, 320, 512], head_dim=32, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), 
         return_dense=True, mix_token=True, **kwargs)
     model.default_cfg = _cfg()
@@ -416,7 +416,7 @@ def uniformer_small(pretrained=True, **kwargs):
 def uniformer_small_plus(pretrained=True, **kwargs):
     model = UniFormer(
         depth=[3, 5, 9, 3], conv_stem=True,
-        embed_dim=[64, 128, 320, 512], head_dim=64, mlp_ratio=4, qkv_bias=True,
+        embed_dim=[64, 128, 320, 512], head_dim=32, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), 
         return_dense=True, mix_token=True, **kwargs)
     model.default_cfg = _cfg()
@@ -427,7 +427,7 @@ def uniformer_small_plus(pretrained=True, **kwargs):
 def uniformer_base(pretrained=True, **kwargs):
     model = UniFormer(
         depth=[5, 8, 20, 7],
-        embed_dim=[64, 128, 320, 512], head_dim=64, mlp_ratio=4, qkv_bias=True,
+        embed_dim=[64, 128, 320, 512], head_dim=32, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), 
         return_dense=True, mix_token=True, **kwargs)
     model.default_cfg = _cfg()
