@@ -4,17 +4,21 @@ This repo is the official implementation of  ["UniFormer: Unifying Convolution a
 
 It currently includes code and models for the following tasks:
 
-- [x]  [Image Classification](image_classification)
+- [x] [Image Classification](image_classification)
+- [x] [Video Classification](video_classification)
+- [x] [Object Detection](object_detection)
+- [x] [Semantic Segmentation](semantic_segmentation)
+- [x] [Pose Estimation](pose_estimation)
 
-- [x]  [Video Classification](video_classification)
 
-- [x]  [Object Detection](object_detection)
 
-- [x]  [Semantic Segmentation](semantic_segmentation)
+## Note!!!!!
 
-- [x]  [Pose Estimation](pose_estimation)
+[02/27/2022] For downstream tasks:
 
-  
+- We forget to **freeze BN in backbone**, which will further improve the performance.
+- We have verified that **Token Labeling can largely help the downstream tasks**. Have a try if you utilize UniFormer for competition or application.
+- The `head_dim` of some models are `32`, which will lead to **large memory cost but little improvement for downstream tasks**. We are re-training all models with `head_dim=64` as backbones.
 
 ## Updates
 
