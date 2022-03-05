@@ -14,13 +14,17 @@ It currently includes code and models for the following tasks:
 
 ## Note!!!!!
 
-[02/27/2022] For downstream tasks:
+For downstream tasks:
 
 - We forget to **freeze BN in backbone**, which will further improve the performance.
 - We have verified that **Token Labeling can largely help the downstream tasks**. Have a try if you utilize UniFormer for competition or application.
-- The `head_dim` of some models are `32`, which will lead to **large memory cost but little improvement for downstream tasks**. We are re-training all models with `head_dim=64` as backbones.
+- The `head_dim` of some models are `32`, which will lead to **large memory cost but little improvement for downstream tasks**. Those models with `head_dim=64` are released released in [image_classification](image_classification).
 
 ## Updates
+
+***03/6/2022***
+
+Some models with `head_dim=64` are released, which can save memory cost for downstream tasks.
 
 ***02/9/2022***
 

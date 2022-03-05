@@ -42,6 +42,14 @@ We currenent release the code and models for:
 
 Though [Layer Scale](https://arxiv.org/abs/2103.17239) is helpful for training deep models, we meet some problems when fine-tuning on video datasets. Hence, we only use the models trained without it for video tasks.
 
+
+Due to the model UniFormer-S† uses `head_dim=32`, which cause much memory cost for downstream tasks. We re-train these models with `head_dim=64`. All models are trained with 224x224 resolution.
+
+| Model                   | Top-1 | #Param. | FLOPs | Model                                                        | Log                                                          | Shell                                     |
+| ----------------------- | ----- | ------- | ----- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------- |
+| UniFormer-S†            | 83.4  | 24M     | 4.2G  | [google](https://drive.google.com/file/d/178ipRvMBKeAP_Fzy6fEr2HQkIQWdgEY6/view?usp=sharing) | [google](https://drive.google.com/file/d/176GcmZz0t0A-1alBDWDX_BU_w2x0wACl/view?usp=sharing) | [run.sh](exp/uniformer_small_plus_dim64/run.sh) |
+
+
 ### ImageNet-1K pretrained with Token Labeling (224x224)
 
 > The followed models and logs can be downloaded on **Google Drive**: [total_models](https://drive.google.com/drive/folders/16iRLUaaxRHLzHg-LMJ3HUOK3dE8WHDPs?usp=sharing), [total_logs](https://drive.google.com/drive/folders/1672n8VVTFMdUKXk9nFr_avml7dk-cpq_?usp=sharing).
@@ -56,6 +64,15 @@ We follow [LV-ViT](https://github.com/zihangJiang/TokenLabeling) to train our mo
 | UniFormer-S†            | 83.9 (+0.5) | 24M     | 4.2G  | [google](https://drive.google.com/file/d/16rgtEVEeX3jVTQaiLsojBQP5sRaj_2aZ/view?usp=sharing) | [google](https://drive.google.com/file/d/16SbjgFUfcqnQjcThRiw1LANk3oxzTgkI/view?usp=sharing) | [run.sh](token_labeling/exp/uniformer_small_plus_tl_224/run.sh) |
 | UniFormer-B             | 85.1 (+1.3) | 50M     | 8.3G  | [google](https://drive.google.com/file/d/16nsTjawiYZuoCHBRarr58zA7vCFcmQmL/view?usp=sharing) | [google](https://drive.google.com/file/d/16eureelQrJEDnu53pNIWLkk2iqb5v0Sm/view?usp=sharing) | [run.sh](token_labeling/exp/uniformer_base_tl_224/run.sh)    |
 | UniFormer-L+Layer Scale | 85.6        | 100M    | 12.6G | [google](https://drive.google.com/file/d/173e2qaJhOwbuC_DbNQSH47Oo_04mSfDj/view?usp=sharing) | [google](https://drive.google.com/file/d/16DyfgQUx8R5SquuqVB5Pll3nDIUJjRm1/view?usp=sharing) | [run.sh](token_labeling/exp/uniformer_large_ls_tl_224/run.sh) |
+
+
+Due to the models UniFormer-S/S†/B use `head_dim=32`, which cause much memory cost for downstream tasks. We re-train these models with `head_dim=64`. All models are trained with 224x224 resolution.
+
+| Model                   | Top-1       | #Param. | FLOPs | Model                                                        | Log                                                          | Shell                                                        |
+| ----------------------- | ----------- | ------- | ----- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| UniFormer-S             | 83.4 (+0.5) | 22M     | 3.6G  | [google](https://drive.google.com/file/d/17NC5qqAWCT2gI_jY_cJnFTOqRQTSwsoz/view?usp=sharing) | [google](https://drive.google.com/file/d/17K4egnbkwfuhQVA7zZDHf6fFYEJSeaJ_/view?usp=sharing) | [run.sh](exp/uniformer_small_dim64_tl_224/run.sh)   |
+| UniFormer-S†            | 83.6 (+0.2) | 24M     | 4.2G  | [google](https://drive.google.com/file/d/17OfoDWt2_nA0BYN0OuLPpG8mHJDTluQQ/view?usp=sharing) | [google](https://drive.google.com/file/d/179gNIN8QOK1dCpWviB9GmLht80WO6qzT/view?usp=sharing) | [run.sh](exp/uniformer_small_plus_dim64_tl_224/run.sh) |
+| UniFormer-B             | 84.8 (+1.0) | 50M     | 8.3G  | [google](https://drive.google.com/file/d/17MneG9CnZG6zBvXYUr4WUXoTYc4rjJj5/view?usp=sharing) | [google](https://drive.google.com/file/d/179gNIN8QOK1dCpWviB9GmLht80WO6qzT/view?usp=sharing) | [run.sh](exp/uniformer_base_dim64_tl_224/run.sh)    |
 
 ### Large resolution fine-tuning (384x384)
 

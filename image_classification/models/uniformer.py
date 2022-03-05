@@ -348,6 +348,17 @@ def uniformer_small_plus(pretrained=True, **kwargs):
 
 
 @register_model
+def uniformer_small_plus_dim64(pretrained=True, **kwargs):
+    model = UniFormer(
+        depth=[3, 5, 9, 3], conv_stem=True,
+        embed_dim=[64, 128, 320, 512], head_dim=64, mlp_ratio=4, qkv_bias=True,
+        norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
+    model.default_cfg = _cfg()
+    return model
+
+
+
+@register_model
 def uniformer_base(pretrained=True, **kwargs):
     model = UniFormer(
         depth=[5, 8, 20, 7],
