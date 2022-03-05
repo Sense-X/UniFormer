@@ -12,6 +12,10 @@ We currenent release the code and models for:
 
 ## Update
 
+***03/6/2022***
+
+Some models with `head_dim=64` are released, which can save memory cost for downstream tasks.
+
 ***01/19/2022***
 
 1. Pretrained models on ImageNet-1K with [Token Labeling](https://arxiv.org/abs/2104.10858).
