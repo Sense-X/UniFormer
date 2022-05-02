@@ -43,7 +43,7 @@ We currenent release the code and models for:
 
 | Backbone | Lr Schd | box mAP | mask mAP | #params | FLOPs | Model | Log | Shell |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |:--- |
-| UniFormer-S<sub>h14</sub> | 3x+MS | 52.1 | 45.2 | 79M | 747G | [google](https://drive.google.com/file/d/13IhpRkh2hE8WfDyw-5-NXSUVZjn9DX20/view?usp=sharing) | [google](https://drive.google.com/file/d/1360aWgKvE29rmcTi__cqAtPtPL19QZUu/view?usp=sharing) | [run.sh](exp/cascade_mask_rcnn_3x_ms_hybrid_small/run.sh)/[config](exp/cascade_mask_rcnn_3x_ms_hybrid_small/config.py) |
+| UniFormer-S<sub>h14</sub> | 3x+MS | 52.1 | 45.2 | 79M | 747G | [google](https://drive.google.com/file/d/13IhpRkh2hE8WfDyw-5-NXSUVZjn9DX20/view?usp=sharing) | [google](https://drive.google.com/file/d/12zBocGyAOsKdojyleJFuZ1UbuU5kmURA/view?usp=sharing) | [run.sh](exp/cascade_mask_rcnn_3x_ms_hybrid_small/run.sh)/[config](exp/cascade_mask_rcnn_3x_ms_hybrid_small/config.py) |
 | UniFormer-B<sub>h14</sub> | 3x+MS | 53.8 | 46.4 | 107M | 878G | [google](https://drive.google.com/file/d/13G9wc73CmS1Kb-kVelFSDlK-ezUBadzQ/view?usp=sharing) | [google](https://drive.google.com/file/d/1360aWgKvE29rmcTi__cqAtPtPL19QZUu/view?usp=sharing) | [run.sh](exp/cascade_mask_rcnn_3x_ms_hybrid_base/run.sh)/[config](exp/cascade_mask_rcnn_3x_ms_hybrid_base/config.py) |
 
 ## Usage
