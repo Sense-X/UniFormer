@@ -405,6 +405,5 @@ def decode(
         )
         index = torch.linspace(start_idx, end_idx, num_frames)
         index = torch.clamp(index, 0, len(frames) - 1).long()
-        tmp_frames = [frames[i.item()] for i in index]
-        frames = torch.stack(tmp_frames)
+        frames = frames.get_batch(index)
     return frames
