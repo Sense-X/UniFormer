@@ -22,6 +22,11 @@ For downstream tasks:
 
 ## Updates
 
+***05/24/2022***
+
+1. Some bugs for video recognition have been fixed in [Nightcrawler](https://github.com/Andy1621/Nightcrawler). We successfully adapt UniFormer for [extreme dark video classification](https://codalab.lisn.upsaclay.fr/competitions/1112#results)! 🎉
+2. More demos for [Detection](https://huggingface.co/spaces/Andy1621/uniformer_image_detection) and [Segmentation](https://huggingface.co/spaces/Andy1621/uniformer_image_segmentation) are provided. 👏😄
+
 ***03/6/2022***
 
 Some models with `head_dim=64` are released, which can save memory cost for downstream tasks.
