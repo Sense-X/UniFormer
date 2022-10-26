@@ -23,7 +23,8 @@ For downstream tasks:
 ## Updates
 
 ***10/26/2022***
-We have provided the code for video visualizations, see [video_classification/vis](./video_classification/vis)
+
+We have provided the code for video visualizations, please see [video_classification/vis](./video_classification/vis).
 
 
 ***05/24/2022***
