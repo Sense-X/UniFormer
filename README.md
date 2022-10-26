@@ -22,6 +22,10 @@ For downstream tasks:
 
 ## Updates
 
+***10/26/2022***
+We have provided the code for video visualizations, see [video_classification/vis](./video_classification/vis)
+
+
 ***05/24/2022***
 
 1. Some bugs for video recognition have been fixed in [Nightcrawler](https://github.com/Andy1621/Nightcrawler). We successfully adapt UniFormer for [extreme dark video classification](https://codalab.lisn.upsaclay.fr/competitions/1112#results)! 🎉
