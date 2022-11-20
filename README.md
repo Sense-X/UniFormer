@@ -22,6 +22,10 @@ For downstream tasks:
 
 ## Updates
 
+***11/20/2022***
+
+We have released [UniFormerV2](https://github.com/OpenGVLab/UniFormerV2), which aims to arming the pre-trained ViTs with efficient UniFormer designs. It can save a lot of reaining resources and achieve powerful performance on 8 popular benchmarks. Please have a try! 🎉
+
 ***10/26/2022***
 
 We have provided the code for video visualizations, please see [video_classification/vis](./video_classification/vis).
