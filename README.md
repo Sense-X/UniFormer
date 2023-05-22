@@ -1,4 +1,13 @@
 # UniFormer
+<a src="https://img.shields.io/badge/%F0%9F%A4%97-Open%20in%20Spaces-blue" href="https://huggingface.co/spaces/Andy1621/uniformer_light ">
+    <img src="https://img.shields.io/badge/%F0%9F%A4%97-Open%20in%20Spaces-blue" alt="Open in Huggingface">
+</a> 
+<a src="https://img.shields.io/badge/cs.CV-2305.06355-b31b1b?logo=arxiv&logoColor=red" href="https://arxiv.org/abs/2201.09450"> 
+   <img src="https://img.shields.io/badge/cs.CV-2305.06355-b31b1b?logo=arxiv&logoColor=red"> 
+</a> 
+<a src="https://img.shields.io/badge/cs.CV-2305.06355-b31b1b?logo=arxiv&logoColor=red" href="https://arxiv.org/abs/2201.04676"> 
+   <img src="https://img.shields.io/badge/cs.CV-2201.04676-b31b1b?logo=arxiv&logoColor=red">
+</a>
 
 This repo is the official implementation of:
 - ***TPAMI2023***: [UniFormer: Unifying Convolution and Self-attention for Visual Recognition](https://arxiv.org/abs/2201.09450) 
@@ -10,7 +19,12 @@ It currently includes code and models for the following tasks:
 - [x] [Object Detection](object_detection)
 - [x] [Semantic Segmentation](semantic_segmentation)
 - [x] [Pose Estimation](pose_estimation)
-- [x] Lightweght Model (see `exp_light` in each task)
+- [x] **Lightweght Model** (see `exp_light` in each task)
+
+Other popular repos:
+- [UniFormerV2](https://github.com/OpenGVLab/UniFormerV2): The first model to achieve 90% top-1 accuracy on Kinetics-400.
+- [Unmasked Teacher](https://github.com/OpenGVLab/unmasked_teacher): Using only public sources for pre-training in 6 days on 32 A100 GPUs, our scratch-built ViT-L/16 achieves state-of-the-art performances on various video tasks.
+- [Ask-Anything](https://github.com/OpenGVLab/Ask-Anything/tree/main): Ask anything in video and image!
 
 
 ## Note!!!!!
