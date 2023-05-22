@@ -10,13 +10,16 @@ We currenent release the code and models for:
 
 ## Updates
 
+
+**05/22/2023**
+
+Lightweight models with Semantic FPN are released.
+
 **01/18/2022**
 
-**\[Initial commits\]:** 
+1. Models with Semantic FPN are released..
 
-1. Models with Semantic FPN.
-
-2. Models with UperNet.
+2. Models with UperNet are released.
 
    
 
@@ -36,6 +39,8 @@ We follow [PVT](https://github.com/whai362/PVT/tree/v2/segmentation) to train ou
 
 |         Backbone          | Lr Schd | mIoU | #params | FLOPs |                            Model                             |                             Log                              |                            Shell                             |
 | :----------------------- | :----- | :-- | :----- | :--- | :---------------------------------------------------------- | :---------------------------------------------------------- | :---------------------------------------------------------- |
+| UniFormer-XXS |   80K   | 42.3 |   13.5M   | -  | [google](https://drive.google.com/file/d/1DPakdzr6G7n8t3_ZAFCx8wFX1r5h_V7-/view?usp=sharing) | [google](https://drive.google.com/file/d/1DJ9cseVGqk6aAe6dyI0jnL5F8X3GZ4bz/view?usp=sharing) | [run.sh](./fpn_seg/exp_light/fpn_xxs/run.sh)/[config](./fpn_seg/exp_light/fpn_xxs/config.py) |
+| UniFormer-XS|   80K   | 44.4 |   19.7M   | -  |  [google](https://drive.google.com/file/d/1Dj3GiQLK7YZPKSgz_Uk8JL1J66XEvw0Y/view?usp=sharing) | [google](https://drive.google.com/file/d/1DLrCjhV2QnzuXjRz2NL5A57fNACCKEId/view?usp=sharing) | [run.sh](./fpn_seg/exp_light/fpn_xs/run.sh)/[config](./fpn_seg/exp_light/fpn_xs/config.py) |
 | UniFormer-S<sub>h14</sub> |   80K   | 46.3 |   25M   | 172G  |                              -                               | [google](https://drive.google.com/file/d/166dIFxHt_xrkHMBe6vqy79TjQbfEQBW1/view?usp=sharing) | [run.sh](fpn_seg/exp/fpn_hybrid_small/run.sh)/[config](fpn_seg/exp/fpn_hybrid_small/config.py) |
 | UniFormer-B<sub>h14</sub> |   80K   | 47.0 |   54M   | 328G  | [google](https://drive.google.com/file/d/14XokJDp1oYDV9jZnniMXyk3AnVfk1S1-/view?usp=sharing) | [google](https://drive.google.com/file/d/13wITOvL-iqIdyjhK8laEzsKvFDba-t9L/view?usp=sharing) | [run.sh](fpn_seg/exp/fpn_hybrid_base/run.sh)/[config](fpn_seg/exp/fpn_hybrid_base/config.py) |
 

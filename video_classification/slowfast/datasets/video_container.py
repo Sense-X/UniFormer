@@ -17,12 +17,8 @@ def get_video_container(path_to_vid, multi_thread_decode=False, backend="pyav"):
         container (container): video container.
     """
     if backend == "torchvision":
-        if client:
-            video_bytes = client.get(path_to_vid)
-            container = memoryview(video_bytes)
-        else:
-            with open(path_to_vid, "rb") as fp:
-                container = fp.read()
+        with open(path_to_vid, "rb") as fp:
+            container = fp.read()
         return container
     elif backend == "pyav":
         container = av.open(path_to_vid)

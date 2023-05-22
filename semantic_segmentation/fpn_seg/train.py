@@ -15,7 +15,6 @@ from mmseg.datasets import build_dataset
 from mmseg.models import build_segmentor
 from mmseg.utils import collect_env, get_root_logger
 
-import uniformer
 from align_resize import AlignResize
 
 

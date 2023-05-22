@@ -12,11 +12,14 @@ We currenent release the code and models for:
 
 ## Update
 
+
+***05/21/2022***
+
+Lightweight models are released, which surpass [X3D](https://arxiv.org/abs/2004.04730) and [MoViNet](https://arxiv.org/abs/2103.11511).
+
 ***01/13/2022***
 
-**\[Initial commits\]:** 
-
-1. Pretrained models on Kinetics-400, Kinetics-600, Something-Something V1&V2
+Pretrained models on Kinetics-400, Kinetics-600, Something-Something V1&V2 d
 
 
 
@@ -30,12 +33,29 @@ We currenent release the code and models for:
 
 - All the `config.yaml` in our `exp` are **NOT** the training config actually used, since some hyperparameters are **changed** in the `run.sh` or `test.sh`.
 - All the models are pretrained on ImageNet-1K without [Token Labeling](https://arxiv.org/abs/2104.10858) and [Layer Scale](https://arxiv.org/abs/2103.17239). You can find those pre-trained models in [image_classification](../image_classification). Reason can be found in [issue \#12](https://github.com/Sense-X/UniFormer/issues/12#issuecomment-1044001497).
--  \#Frame = \#input_frame x \#crop x \#clip
-  - \#input_frame means how many frames are input for model per inference
-  - \#crop means spatial crops (e.g., 3 for left/right/center)
-  - \#clip means temporal clips (e.g., 4 means repeted sampling four clips with different start indices) 
+- \#Frame = \#input_frame x \#crop x \#clip
+- \#input_frame means how many frames are input for model per inference
+- \#crop means spatial crops (e.g., 3 for left/right/center)
+- \#clip means temporal clips (e.g., 4 means repeted sampling four clips with different start indices)
 
 ### Kinetics-400
+
+| Model         | #Frame | Resolution | FLOPs | Top1 | Model      | Log        | Shell | 
+| ------------- | ------ | ---------- | ----- | -----| ---------- | ---------- | ----- |
+| UniFormer-XXS | 4x1x1  | 128        | 1.0G  | 63.2 | [google](https://drive.google.com/file/d/1EFBxDS2m4mpk_sYejnPuGSDRH_1ELDhx/view?usp=sharing) | [google](https://drive.google.com/file/d/1EZK8h0lUswSISzRqW4ymS0nCzOfmiT0O/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs4_128_k400/run.sh)/[config](./exp_light/uniformer_xxs4_128_k400/config.yaml) |
+| UniFormer-XXS | 4x1x1  | 160        | 1.6G  | 65.8 | [google](https://drive.google.com/file/d/1DtTFT7FZ_kUjxqXAYyWhfXSr_EIHQi8a/view?usp=sharing) | [google](https://drive.google.com/file/d/1EUemnw6KRa8ydf7dJS-LqESM3F51alvq/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs4_160_k400/run.sh)/[config](./exp_light/uniformer_xxs4_160_k400/config.yaml) |
+| UniFormer-XXS | 8x1x1  | 128        | 2.0G  | 68.3 | [google](https://drive.google.com/file/d/1E9VwV-XJQCmo9nBhxLxa9DdphZiIg38z/view?usp=sharing) | [google](https://drive.google.com/file/d/1Eoh3tMWeef5IkM5TpOEsfFvTTzAxbNws/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs8_128_k400/run.sh)/[config](./exp_light/uniformer_xxs8_128_k400/config.yaml) |
+| UniFormer-XXS | 8x1x1  | 160        | 3.3G  | 71.4 | [google](https://drive.google.com/file/d/1Dxq82X8mBsfVOzij0HSeb1g4sdez71FM/view?usp=sharing) | [google](https://drive.google.com/file/d/1ESTw2R3ldecynk6QdtMDDea0OeH6RvF7/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs8_160_k400/run.sh)/[config](./exp_light/uniformer_xxs8_160_k400/config.yaml) |
+| UniFormer-XXS | 16x1x1 | 128        | 4.2G  | 73.3 | [google](https://drive.google.com/file/d/1DngSOmw0rStnYZlaCnz1xII6CU2d2R_j/view?usp=sharing) | [google](https://drive.google.com/file/d/1ETjHEKGZNvAFCnDijA1gr34NHbliGvhR/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs16_128_k400/run.sh)/[config](./exp_light/uniformer_xxs16_128_k400/config.yaml) |
+| UniFormer-XXS | 16x1x1 | 160        | 6.9G  | 75.1 | [google](https://drive.google.com/file/d/1DxqrNHb4h1ZKnEFaqbkKJAXQsyIFeD7b/view?usp=sharing) | [google](https://drive.google.com/file/d/1EVHCoy9tHYfn7f-9bG_O1tFtcLhYKVVC/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs16_160_k400/run.sh)/[config](./exp_light/uniformer_xxs16_160_k400/config.yaml) |
+| UniFormer-XXS | 32x1x1 | 160        | 15.4G | 77.9 | [google](https://drive.google.com/file/d/1EIVXRYn5UIkLaJGDpTBxTcyog_dKbcZe/view?usp=sharing) | [google](https://drive.google.com/file/d/1ENZYQ_T7_X4cPiF3HBS6haTWBcgMp7TP/view?usp=sharing) | [run.sh](./exp_light/uniformer_xxs32_160_k400/run.sh)/[config](./exp_light/uniformer_xxs32_160_k400/config.yaml) |
+| UniFormer-XS  | 32x1x1 | 192        | 34.2G | 78.6 | [google](https://drive.google.com/file/d/1DtdX-keSB-RkH23KqtQH36IMOUmol1kw/view?usp=sharing) | [google](https://drive.google.com/file/d/1EWFk-INNe5pnHVz3przqADvqPJS6nlCk/view?usp=sharing) | [run.sh](./exp_light/uniformer_xs32_192_k400/run.sh)/[config](./exp_light/uniformer_xs32_192_k400/config.yaml) |
+
+We adopt sparse sampling method for lightweight models. And to avoid loss NAN , we use the following techiniques:
+- Close mixed precision training.
+- Use weaker data augmentation.
+- Add [Layer Scale](https://arxiv.org/abs/2103.17239).
+
 
 | Model       | #Frame | Sampling Stride | FLOPs | Top1 | Model                                                        | Log                                                          | Shell                                                        |
 | ----------- | ------ | --------------- | ----- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -60,7 +80,7 @@ We currenent release the code and models for:
 
 \* Since Kinetics-600 is too large to train (>1 month in single node with 8 A100 GPUs), we provide model trained in multi node (around 2 weeks with 32 V100 GPUs), but the result is lower due to the lack of tuning hyperparameters.
 
-For Multi-node training, please install [submitit](https://github.com/facebookincubator/submitit).
+For Multi-node training, please install [submitit](https://github.com/facebookincubator/submitit) or follow the training scripts in our [UniFormerV2](https://github.com/OpenGVLab/UniFormerV2).
 
 ### Something-Something V1
 
@@ -87,6 +107,19 @@ For Multi-node training, please install [submitit](https://github.com/facebookin
 | UniFormer-B | K600     | 16x3x1 | 290G  | 70.2 | [google](https://drive.google.com/file/d/16nCBGWzMM8n8Vr_EY0UmvgzLG0S_QYef/view?usp=sharing) | [google](https://drive.google.com/file/d/10aaqr20Vp_UAiC4GvuiK-Uo0eyneNl4b/view?usp=sharing) | [run.sh](exp/uniformer_b16_sthv2_prek600/run.sh)/[config](exp/uniformer_b16_sthv2_prek600/config.yaml) |
 | UniFormer-B | K400     | 32x3x1 | 777G  | 71.1 | [google](https://drive.google.com/file/d/1-rpMARXnyvyj6YUJkIvVqtna86egpjoS/view?usp=sharing) | [google](https://drive.google.com/file/d/11SA-64b-3ty4BC8w_vXtXYx5Sjn5nYPx/view?usp=sharing) | [run.sh](exp/uniformer_b32_sthv2_prek400/run.sh)/[config](exp/uniformer_b32_sthv2_prek400/config.yaml) |
 | UniFormer-B | K600     | 32x3x1 | 777G  | 71.2 | [google](https://drive.google.com/file/d/1-lkRB3546l_ECuObN_IrHws1C9a-qKPr/view?usp=sharing) | [google](https://drive.google.com/file/d/11Gzhwz5GAqcMxUA3JOUeeZnjCcv09Afy/view?usp=sharing) | [run.sh](exp/uniformer_b32_sthv2_prek600/run.sh)/[config](exp/uniformer_b32_sthv2_prek600/config.yaml) |
+
+### UCF101
+
+| Model       | #Frame | Sampling Stride | FLOPs | Top1 | Model                                                        | Log                                                          | Shell                                                        |
+| ----------- | ------ | --------------- | ----- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| UniFormer-S | 16x3x5  | 4            | 625G   | 98.3 | [google]() | [google]() | [run.sh](./exp/uniformer_s16x4_ucf101_prek400/run.sh)/[config](./exp/uniformer_s16x4_ucf101_prek400/config.yaml) |
+
+### HMDB51
+
+| Model       | #Frame | Sampling Stride | FLOPs | Top1 | Model                                                        | Log                                                          | Shell                                                        |
+| ----------- | ------ | --------------- | ----- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| UniFormer-S | 16x3x5  | 4            | 625G   | 77.5 | [google]() | [google]() | [run.sh](./exp/uniformer_s16x4_hmdb51_prek400/run.sh)/[config](./exp/uniformer_s16x4_hmdb51_prek400/config.yaml) |
+
 
 ## Usage
 

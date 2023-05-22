@@ -161,6 +161,10 @@ _C.TEST.NUM_SPATIAL_CROPS = 3
 _C.TEST.CHECKPOINT_TYPE = "pytorch"
 # Path to saving prediction results file.
 _C.TEST.SAVE_RESULTS_PATH = ""
+
+# Whether testing the best model, it will test the latest model by default.
+_C.TEST.TEST_BEST = False
+
 # -----------------------------------------------------------------------------
 # ResNet options
 # -----------------------------------------------------------------------------
@@ -440,6 +444,12 @@ _C.UNIFORMER.STAGE_TYPE = [0, 0, 1, 1]
 
 # spatial-temporal downsample.
 _C.UNIFORMER.STD = False
+
+# prune ratio.
+_C.UNIFORMER.PRUNE_RATIO = [[], [], [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5], [0.5, 0.5, 0.5]]
+
+# trade off.
+_C.UNIFORMER.TRADE_OFF = [[], [], [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5], [0.5, 0.5, 0.5]]
 
 
 # -----------------------------------------------------------------------------

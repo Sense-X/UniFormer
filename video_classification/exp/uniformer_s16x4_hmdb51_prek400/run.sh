@@ -1,0 +1,23 @@
+work_path=$(dirname $0)
+PYTHONPATH=$PYTHONPATH:./slowfast \
+python tools/run_net.py \
+  --cfg $work_path/config.yaml \
+  DATA.PATH_TO_DATA_DIR ./data_list/hmdb51/split1 \
+  DATA.LABEL_PATH_TEMPLATE {}.txt \
+  DATA.PATH_PREFIX your_path_to_data \
+  DATA.IMAGE_TEMPLATE "img_{:05d}.jpg" \
+  TRAIN.EVAL_PERIOD 1 \
+  TRAIN.CHECKPOINT_PERIOD 50 \
+  TRAIN.BATCH_SIZE 128 \
+  TRAIN.SAVE_LATEST False \
+  NUM_GPUS 8 \
+  SOLVER.MAX_EPOCH 25 \
+  SOLVER.BASE_LR 5e-5 \
+  SOLVER.BASE_LR_SCALE_NUM_SHARDS False \
+  SOLVER.WARMUP_EPOCHS 5. \
+  DATA.TEST_CROP_SIZE 224 \
+  TEST.NUM_ENSEMBLE_VIEWS 5 \
+  TEST.NUM_SPATIAL_CROPS 3 \
+  TEST.TEST_BEST True \
+  RNG_SEED 6666 \
+  OUTPUT_DIR $work_path

@@ -9,10 +9,18 @@ We currenent release the code and models for:
 - [x] Large resolution fine-tuning
 
 
+- [x] Lightweight Model
+
+
 
 ## Update
 
-***03/6/2022***
+
+***05/21/2022***
+
+Lightweight models are released, which surpass [MobileViT](https://arxiv.org/abs/2110.02178), [PVTv2](https://arxiv.org/abs/2106.13797) and [EfficientNet](https://arxiv.org/abs/1905.11946).
+
+***03/06/2022***
 
 Some models with `head_dim=64` are released, which can save memory cost for downstream tasks.
 
@@ -23,13 +31,29 @@ Some models with `head_dim=64` are released, which can save memory cost for down
 
 ***01/13/2022***
 
-**\[Initial commits\]:** 
-
-1. Pretrained models on ImageNet-1K.
+Pretrained models on ImageNet-1K are released.
 
 
 
 ## Model Zoo
+
+### Lightweight models on ImageNet-1K
+
+> The followed models and logs can be downloaded on **Google Drive**: [total_models](https://drive.google.com/drive/folders/1-sqWoelz3agOG74VkNwadY8RHR28o4Wv?usp=sharing), [total_logs](https://drive.google.com/drive/folders/10MxmGoKxI3zMyCrzYaBDObCW7XgZn2tG?usp=sharing).
+>
+> We also release the models on **Baidu Cloud**: [total_models (bdkq)](https://pan.baidu.com/s/1tLvcwGquAsQdGRAiKR0Jcg), [total_logs (ttub)](https://pan.baidu.com/s/1zFI-E-HRiYzmBtseB_tjEQ).
+
+| Model                   | Top-1 | Resolution | #Param. | FLOPs | Model      | Log        | Shell                                     |
+| ----------------------- | ----- | ---------- | ------- | ----- | ---------- | ---------- | ----------------------------------------- |
+| UniFormer-XXS           | 76.8  | 128x128    | 10.2M   | 0.43G | [google](https://drive.google.com/file/d/1Cr7uB5hUck1BHioEROWZjfLpYRwg4Zps/view?usp=sharing) | [google](https://drive.google.com/file/d/1DDmqGBCuEFPpBLDqHZOHsPC7Zn-bz9ZE/view?usp=sharing) | [run.sh](./exp_light/xxs_128/run.sh)         |
+| UniFormer-XXS           | 79.1  | 160x160    | 10.2M   | 0.67G | [google](https://drive.google.com/file/d/1CsXCzfVFPyM2mY8BA_1fO3q_VBngnF44/view?usp=sharing) | [google](https://drive.google.com/file/d/1CyZvq_nvXnd-KvJ_Rp7XqgM442oYcuKx/view?usp=sharing) | [run.sh](./exp_light/xxs_160/run.sh)         |
+| UniFormer-XXS           | 79.9  | 192x192    | 10.2M   | 0.96G | [google](https://drive.google.com/file/d/1CjrCEnZCk2aLrN7nVG8vFvu3FAUL4_Y_/view?usp=sharing) | [google](https://drive.google.com/file/d/1DDE3GMNWwRGLnwWyeTbjxfc6pGskQ7Ak/view?usp=sharing) | [run.sh](./exp_light/xxs_192/run.sh)         |
+| UniFormer-XXS           | 80.6  | 224x224    | 10.2M   | 1.3G  | [google](https://drive.google.com/file/d/1Cw9r_3c30N-esFI8RFYa6rQXJrr1rAHY/view?usp=sharing) | [google](https://drive.google.com/file/d/1DB4z6rTFPqtOgdn_qym9UvB2rTTIq9aQ/view?usp=sharing) | [run.sh](./exp_light/xxs_224/run.sh)         |
+| UniFormer-XS            | 81.5  | 192x192    | 16.5M   | 1.4G  | [google](https://drive.google.com/file/d/1Ce2Dk9-k_-sHt5dXp-gfNOEK37Jdcffv/view?usp=sharing) | [google](https://drive.google.com/file/d/1DIlTlzAFOcDiNbQK5kjI0Ih8o58tMB12/view?usp=sharing) | [run.sh](./exp_light/xs_192/run.sh)         |
+| UniFormer-XS            | 82.0  | 224x224    | 16.5M   | 2.0G  | [google](https://drive.google.com/file/d/1CwQ91fjuAu3Rhn3zV4vjAmQ8v36AfYPT/view?usp=sharing) | [google](https://drive.google.com/file/d/1DDbJp9-sI_sPHybJv40Kh0sBLWlVxvhm/view?usp=sharing) | [run.sh](./exp_light/xs_224/run.sh)         |
+
+For those lightweight models, we train them with longer (600) epochs and weaker data augmentation. Besides, to avoid loss NAN, we do not use mixed precision training.
+
 
 ### ImageNet-1K pretrained (224x224)
 

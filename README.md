@@ -1,15 +1,16 @@
 # UniFormer
 
-This repo is the official implementation of  ["UniFormer: Unifying Convolution and Self-attention for Visual Recognition"](https://arxiv.org/abs/2201.09450) and  ["UniFormer: Unified Transformer for Efficient Spatiotemporal Representation Learning"](https://arxiv.org/abs/2201.04676). 
+This repo is the official implementation of:
+- ***TPAMI2023***: [UniFormer: Unifying Convolution and Self-attention for Visual Recognition](https://arxiv.org/abs/2201.09450) 
+- ***ICLR2022***: [UniFormer: Unified Transformer for Efficient Spatiotemporal Representation Learning](https://arxiv.org/abs/2201.04676)
 
 It currently includes code and models for the following tasks:
-
 - [x] [Image Classification](image_classification)
 - [x] [Video Classification](video_classification)
 - [x] [Object Detection](object_detection)
 - [x] [Semantic Segmentation](semantic_segmentation)
 - [x] [Pose Estimation](pose_estimation)
-
+- [x] Lightweght Model (see `exp_light` in each task)
 
 
 ## Note!!!!!
@@ -22,9 +23,18 @@ For downstream tasks:
 
 ## Updates
 
+
+***05/19/2023***
+
+The extension version has been accepted by IEEE Transactions on Pattern Analysis and Machine Intelligence (***TPAMI***) 🎉🎉🎉. In revision, we explore the simple yet effective lightweight design: **Hourglass UniFormer**. Based on that, we propose the efficient UniFormer-XS and UniFormer-XXS:
+
+- For image tasks, they surpass [MobileViT](https://arxiv.org/abs/2110.02178), [PVTv2](https://arxiv.org/abs/2106.13797) and [EfficientNet](https://arxiv.org/abs/1905.11946).
+- For video tasks, they surpass [X3D](https://arxiv.org/abs/2004.04730) and [MoViNet](https://arxiv.org/abs/2103.11511).
+
+
 ***11/20/2022***
 
-We have released [UniFormerV2](https://github.com/OpenGVLab/UniFormerV2), which aims to arming the pre-trained ViTs with efficient UniFormer designs. It can save a lot of reaining resources and achieve powerful performance on 8 popular benchmarks. Please have a try! 🎉
+We have released [UniFormerV2](https://github.com/OpenGVLab/UniFormerV2), which aims to arming the pre-trained ViTs with efficient UniFormer designs. It can save a lot of reaining resources and achieve powerful performance on 8 popular benchmarks. Please have a try! 🎉🎉
 
 ***10/26/2022***
 
@@ -33,7 +43,7 @@ We have provided the code for video visualizations, please see [video_classifica
 
 ***05/24/2022***
 
-1. Some bugs for video recognition have been fixed in [Nightcrawler](https://github.com/Andy1621/Nightcrawler). We successfully adapt UniFormer for [extreme dark video classification](https://codalab.lisn.upsaclay.fr/competitions/1112#results)! 🎉
+1. Some bugs for video recognition have been fixed in [Nightcrawler](https://github.com/Andy1621/Nightcrawler). We successfully adapt UniFormer for [extreme dark video classification](https://codalab.lisn.upsaclay.fr/competitions/1112#results)! 🎉🎉
 2. More demos for [Detection](https://huggingface.co/spaces/Andy1621/uniformer_image_detection) and [Segmentation](https://huggingface.co/spaces/Andy1621/uniformer_image_segmentation) are provided. 👏😄
 
 ***03/6/2022***
@@ -67,8 +77,6 @@ Integrated into [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%9
 
 ***01/13/2022***
 
-**\[Initial commits\]:**
-
 1. Pretrained models on ImageNet-1K, Kinetics-400, Kinetics-600, Something-Something V1&V2.
 
 2. The supported code and models for image classification and video classification are provided.
@@ -79,7 +87,7 @@ Integrated into [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%9
 
 **UniFormer** (**Uni**fied trans**Former**) is introduce in [arxiv](https://arxiv.org/abs/2201.04676) (more details can be found in [arxiv](https://arxiv.org/abs/2201.09450)), which can seamlessly integrate merits of convolution and self-attention in a concise transformer format. We adopt local MHRA in shallow layers to largely reduce computation burden and global MHRA in deep layers to learn global token relation. 
 
-Without any extra training data, our UniFormer achieves **86.3** top-1 accuracy on ImageNet-1K classification. With only ImageNet-1K pre-training, it can simply achieve state-of-the-art performance in a broad range of downstream tasks. Our UniFormer obtains **82.9/84.8** top-1 accuracy on Kinetics-400/600, and **60.9/71.2** top-1 accuracy on Something-Something V1/V2 video classification tasks. It also achieves **53.8** box AP and **46.4** mask AP on COCO object detection task, 50.8 mIoU on ADE20K semantic segmentation task, and **77.4** AP on COCO pose estimation task. 
+Without any extra training data, our UniFormer achieves **86.3** top-1 accuracy on ImageNet-1K classification. With only ImageNet-1K pre-training, it can simply achieve state-of-the-art performance in a broad range of downstream tasks. Our UniFormer obtains **82.9/84.8** top-1 accuracy on Kinetics-400/600, and **60.9/71.2** top-1 accuracy on Something-Something V1/V2 video classification tasks. It also achieves **53.8** box AP and **46.4** mask AP on COCO object detection task, 50.8 mIoU on ADE20K semantic segmentation task, and **77.4** AP on COCO pose estimation task. Moreover, we build an efficient UniFormer with a concise hourglass design of token shrinking and recovering, which achieves **2-4×** higher throughput than the recent lightweight models.
 
 ![teaser](figures/framework.png)
 
@@ -91,6 +99,12 @@ More models with large resolution and token labeling will be released  soon.
 
 | Model           | Pretrain    | Resolution | Top-1 | #Param. | FLOPs |
 | --------------- | ----------- | ---------- | ----- | ------- | ----- |
+| UniFormer-XXS   | ImageNet-1K | 128x128    | 76.8  | 10.2M   | 0.43G |
+| UniFormer-XXS   | ImageNet-1K | 160x160    | 79.1  | 10.2M   | 0.67G |
+| UniFormer-XXS   | ImageNet-1K | 192x192    | 79.9  | 10.2M   | 0.96G |
+| UniFormer-XXS   | ImageNet-1K | 224x224    | 80.6  | 10.2M   | 1.3G  |
+| UniFormer-XS    | ImageNet-1K | 192x192    | 81.5  | 16.5M   | 1.4G  |
+| UniFormer-XS    | ImageNet-1K | 224x224    | 82.0  | 16.5M   | 2.0G  |
 | UniFormer-S     | ImageNet-1K | 224x224    | 82.9  | 22M     | 3.6G  |
 | UniFormer-S†    | ImageNet-1K | 224x224    | 83.4  | 24M     | 4.2G  |
 | UniFormer-B     | ImageNet-1K | 224x224    | 83.9  | 50M     | 8.3G  |
@@ -116,9 +130,22 @@ Please see [video_classification](video_classification) for more details.
 | UniFormer-B | ImageNet-1K | 16x1x4 | 8            | 387G  | 81.7       | 83.4       |
 | UniFormer-B | ImageNet-1K | 32x1x4 | 4            | 1036G | 82.9       | 84.5*      |
 
+| Model         | Pretrain    | #Frame | Resolution | FLOPs | K400 Top-1 |
+| ------------- | ----------- | ------ | ---------- | ----- | ---------- |
+| UniFormer-XXS | ImageNet-1K | 4x1x1  | 128        | 1.0G  | 63.2       |
+| UniFormer-XXS | ImageNet-1K | 4x1x1  | 160        | 1.6G  | 65.8       |
+| UniFormer-XXS | ImageNet-1K | 8x1x1  | 128        | 2.0G  | 68.3       |
+| UniFormer-XXS | ImageNet-1K | 8x1x1  | 160        | 3.3G  | 71.4       |
+| UniFormer-XXS | ImageNet-1K | 16x1x1 | 128        | 4.2G  | 73.3       |
+| UniFormer-XXS | ImageNet-1K | 16x1x1 | 160        | 6.9G  | 75.1       |
+| UniFormer-XXS | ImageNet-1K | 32x1x1 | 160        | 15.4G | 77.9       |
+| UniFormer-XS  | ImageNet-1K | 32x1x1 | 192        | 34.2G | 78.6       |
+
 >  \#Frame = \#input_frame x \#crop x \#clip
 
 \* Since Kinetics-600 is too large to train (>1 month in single node with 8 A100 GPUs), we provide model trained in multi node (around 2 weeks with 32 V100 GPUs), but the result is lower due to the lack of tuning hyperparameters.
+
+\* For UniFormer-XS and UniFormer-XXS, we use sparse sampling.
 
 ## Main results on Something-Something video classification
 
@@ -137,6 +164,19 @@ Please see [video_classification](video_classification) for more details.
 
 > \#Frame = \#input_frame x \#crop x \#clip
 
+## Main results on UCF101 and HMDB51 video classification
+
+Please see [video_classification](video_classification) for more details.
+
+| Model       | Pretrain    | #Frame | Sampling Stride | FLOPs | UCF101 Top-1 | HMDB51 Top-1 |
+| ----------- | ----------- | ------ | --------------- | ----- | ---------- | ---------- |
+| UniFormer-S | K400 | 16x3x5 | 4            | 625G  | 98.3       | 77.5       |
+
+> \#Frame = \#input_frame x \#crop x \#clip
+
+\* We only report the results in the first split. As for the results in our paper, we run the model in 3 training/validation splits and average the results.
+
+
 ## Main results on COCO object detection
 
 Please see [object_detection](object_detection) for more details.
@@ -145,10 +185,14 @@ Please see [object_detection](object_detection) for more details.
 
 |         Backbone          | Lr Schd | box mAP | mask mAP | #params | FLOPs |
 | :--------------- | :----- | :----- | :------ | :----- | :--- |
+| UniFormer-XXS             |   1x    |  42.8   |   39.2   |   29.4M | -  |
+| UniFormer-XS              |   1x    |  44.6   |   40.9   |   35.6M | -  |
 | UniFormer-S<sub>h14</sub> |   1x    |  45.6   |   41.6   |   41M   | 269G  |
 | UniFormer-S<sub>h14</sub> |  3x+MS  |  48.2   |   43.4   |   41M   | 269G  |
 | UniFormer-B<sub>h14</sub> |   1x    |  47.4   |   43.1   |   69M   | 399G  |
 | UniFormer-B<sub>h14</sub> |  3x+MS  |  50.3   |   44.8   |   69M   | 399G  |
+
+\* The FLOPs are measured at resolution 800×1280.
 
 ### Cascade Mask R-CNN
 
@@ -156,6 +200,8 @@ Please see [object_detection](object_detection) for more details.
 | :----------------------- | :----- | :----- | :------ | :----- | :--- |
 | UniFormer-S<sub>h14</sub> |  3x+MS  |  52.1   |   45.2   |   79M   | 747G  |
 | UniFormer-B<sub>h14</sub> |  3x+MS  |  53.8   |   46.4   |  107M   | 878G  |
+
+\* The FLOPs are measured at resolution 800×1280.
 
 ## Main results on ADE20K semantic segmentation
 
@@ -165,14 +211,18 @@ Please see [semantic_segmentation](semantic_segmentation) for more details.
 
 |         Backbone          | Lr Schd | mIoU | #params | FLOPs |
 | :------------------- | :----- | :-- | :----- | :--- |
+| UniFormer-XXS             |   80K   | 42.3 |   13.5M | -  |
+| UniFormer-XS              |   80K   | 44.4 |   19.7M | -  |
 | UniFormer-S<sub>h14</sub> |   80K   | 46.3 |   25M   | 172G  |
 | UniFormer-B<sub>h14</sub> |   80K   | 47.0 |   54M   | 328G  |
 | UniFormer-S<sub>w32</sub> |   80K   | 45.6 |   25M   | 183G  |
 | UniFormer-S<sub>h32</sub> |   80K   | 46.2 |   25M   | 199G  |
-|  UniFormer-S  |   80K   | 46.6 |   25M   | 247G  |
+| UniFormer-S               |   80K   | 46.6 |   25M   | 247G  |
 | UniFormer-B<sub>w32</sub> |   80K   | 47.0 |   54M   | 310G  |
 | UniFormer-B<sub>h32</sub> |   80K   | 47.7 |   54M   | 350G  |
-|  UniFormer-B  |   80K   | 48.0 |   54M   | 471G  |
+| UniFormer-B               |   80K   | 48.0 |   54M   | 471G  |
+
+\* The FLOPs are measured at resolution 512×2048.
 
 ### UperNet
 
@@ -186,6 +236,8 @@ Please see [semantic_segmentation](semantic_segmentation) for more details.
 |  UniFormer-B<sub>w32</sub>  |  160K   | 49.1 |  50.6   |   80M   | 1066G |
 | UniFormer-B<sub>h32</sub> |  160K   | 49.5 |  50.7   |   80M   | 1106G |
 |  UniFormer-B  |  160K   | 50.0 |  50.8   |   80M   | 1227G |
+
+\* The FLOPs are measured at resolution 512×2048.
 
 ## Main results on COCO pose estimation
 

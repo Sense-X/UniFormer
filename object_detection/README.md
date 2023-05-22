@@ -10,13 +10,16 @@ We currenent release the code and models for:
 
 ## Updates
 
+
+**05/22/2023**
+
+Lightweight models with Mask R-CNN are released.
+
 **01/18/2022**
 
-**\[Initial commits\]:** 
+1. Models with Mask R-CNN are released.
 
-1. Models with Mask R-CNN.
-
-2. Models with Cascade Mask R-CNN.
+2. Models with Cascade Mask R-CNN are released.
 
    
 
@@ -29,11 +32,14 @@ We currenent release the code and models for:
 ### Note
 
 - All the models are pretrained on ImageNet-1K without [Token Labeling](https://arxiv.org/abs/2104.10858) and [Layer Scale](https://arxiv.org/abs/2103.17239). Reason can be found in [issue \#12](https://github.com/Sense-X/UniFormer/issues/12#issuecomment-1044001497).
+- The FLOPs are measured at resolution 800×1280.
 
 ### Mask R-CNN
 
 | Backbone | Lr Schd | box mAP | mask mAP | #params | FLOPs | Model | Log | Shell |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |:--- |
+| UniFormer-XXS | 1x | 42.8 | 39.2 | 29.4M | - | [google](https://drive.google.com/file/d/1CUyS-hWbpLvOXHZ35n4BZPmiCbMXt0mc/view?usp=sharing) | [google](https://drive.google.com/file/d/1CDw5Ql409xczOI8M9kA4CNJCgemr__U5/view?usp=sharing) | [run.sh](./exp_light/mask_rcnn_1x_xxs/run.sh)/[config](./exp_light/mask_rcnn_1x_xxs/config.py) |
+| UniFormer-XS  | 1x | 44.6 | 40.9 | 35.6M | - | [google](https://drive.google.com/file/d/1CRHb-W5Csy_509J4Ux62TOT7dpixdsOi/view?usp=sharing) | [google](https://drive.google.com/file/d/1C90FNxJ4GV2QFLRtIWHYG3CGuA8Rw6g-/view?usp=sharing) | [run.sh](./exp_light/mask_rcnn_1x_xs/run.sh)/[config](./exp_light/mask_rcnn_1x_xs/config.py) |
 | UniFormer-S<sub>h14</sub> | 1x | 45.6 | 41.6 | 41M | 269G | [google](https://drive.google.com/file/d/13KhBYkHKQg-CyhAgn1LQM1K0R4bwSpWT/view?usp=sharing) | [google](https://drive.google.com/file/d/130ys7x9VJ_F0qwBMZSdjIXpN_nY2V3yT/view?usp=sharing) | [run.sh](exp/mask_rcnn_1x_hybrid_small/run.sh)/[config](exp/mask_rcnn_1x_hybrid_small/config.py) |
 | UniFormer-S<sub>h14</sub> | 3x+MS | 48.2 | 43.4 | 41M | 269G | [google](https://drive.google.com/file/d/13O6P-spXbWuXgUjLw8AyRITYTwhdOwuD/view?usp=sharing) | [google](https://drive.google.com/file/d/1337Ee1HWpUl6L9NupO2XjUfkcUrfD2-P/view?usp=sharing) | [run.sh](exp/mask_rcnn_3x_ms_hybrid_small/run.sh)/[config](exp/mask_rcnn_3x_ms_hybrid_small/config.py) |
 | UniFormer-B<sub>h14</sub> | 1x | 47.4 | 43.1 | 69M | 399G | [google](https://drive.google.com/file/d/13YrVEiqFraSuX1NzdhPnhw7bFXTvEii1/view?usp=sharing) | [google](https://drive.google.com/file/d/12yIcaEs9sHoDNwrKOvWTCV2oP0JO31-I/view?usp=sharing) | [run.sh](exp/mask_rcnn_1x_hybrid_base/run.sh)/[config](exp/mask_rcnn_1x_hybrid_base/config.py) |

@@ -12,3 +12,6 @@ from .ptv_model_builder import (
 )  # noqa
 from .video_model_builder import ResNet, SlowFast  # noqa
 from .uniformer import Uniformer  # noqa
+from .uniformer_light import Uniformer_light  # noqa
+from .uniformer_light_fp32 import Uniformer_light_fp32  # noqa
+from .uniformer_light_ls_fp32 import Uniformer_light_ls_fp32  # noqa

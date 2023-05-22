@@ -12,9 +12,10 @@ from .ssd_vgg import SSDVGG
 from .trident_resnet import TridentResNet
 from .swin_transformer import SwinTransformer
 from .uniformer import UniFormer
+from .uniformer_light import UniFormer_Light
 
 __all__ = [
     'RegNet', 'ResNet', 'ResNetV1d', 'ResNeXt', 'SSDVGG', 'HRNet', 'Res2Net',
     'HourglassNet', 'DetectoRS_ResNet', 'DetectoRS_ResNeXt', 'Darknet',
-    'ResNeSt', 'TridentResNet', 'SwinTransformer', 'UniFormer'
+    'ResNeSt', 'TridentResNet', 'SwinTransformer', 'UniFormer', 'UniFormer_Light'
 ]

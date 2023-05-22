@@ -70,6 +70,16 @@ def get_last_checkpoint(path_to_job):
     return os.path.join(d, name)
 
 
+def get_best_checkpoint(path_to_job):
+    """
+    Get the best checkpoint from the checkpointing folder.
+    """
+
+    best_path = os.path.join(path_to_job, 'best.pyth')
+    assert g_pathmgr.exists(best_path)
+    return best_path
+
+
 def has_checkpoint(path_to_job):
     """
     Determines if the given directory contains a checkpoint.
@@ -470,6 +480,9 @@ def load_test_checkpoint(cfg, model):
             inflation=False,
             convert_from_caffe2=cfg.TEST.CHECKPOINT_TYPE == "caffe2",
         )
+    elif cfg.TEST.TEST_BEST:
+        best_checkpoint = get_best_checkpoint(cfg.OUTPUT_DIR)
+        load_checkpoint(best_checkpoint, model, None, cfg.NUM_GPUS > 1)
     elif has_checkpoint(cfg.OUTPUT_DIR):
         last_checkpoint = get_last_checkpoint(cfg.OUTPUT_DIR)
         load_checkpoint(last_checkpoint, model, None, cfg.NUM_GPUS > 1)
