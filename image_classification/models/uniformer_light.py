@@ -288,7 +288,6 @@ class PatchEmbed(nn.Module):
     """
     def __init__(self, patch_size=16, in_chans=3, embed_dim=768):
         super().__init__()
-        self.num_patches = num_patches
         self.norm = nn.LayerNorm(embed_dim)
         self.proj = nn.Conv2d(in_chans, embed_dim, kernel_size=patch_size, stride=patch_size)
 

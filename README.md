@@ -30,6 +30,7 @@ The extension version has been accepted by IEEE Transactions on Pattern Analysis
 
 - For image tasks, they surpass [MobileViT](https://arxiv.org/abs/2110.02178), [PVTv2](https://arxiv.org/abs/2106.13797) and [EfficientNet](https://arxiv.org/abs/1905.11946).
 - For video tasks, they surpass [X3D](https://arxiv.org/abs/2004.04730) and [MoViNet](https://arxiv.org/abs/2103.11511).
+- Try our [🚀fast demo🚀](https://huggingface.co/spaces/Andy1621/uniformer_light) on CPU!
 
 
 ***11/20/2022***

@@ -347,14 +347,10 @@ class SplitSABlock(nn.Module):
 class SpeicalPatchEmbed(nn.Module):
     """ Image to Patch Embedding
     """
-    def __init__(self, img_size=224, patch_size=16, in_chans=3, embed_dim=768):
+    def __init__(self, patch_size=16, in_chans=3, embed_dim=768):
         super().__init__()
-        img_size = to_2tuple(img_size)
         patch_size = to_2tuple(patch_size)
-        num_patches = (img_size[1] // patch_size[1]) * (img_size[0] // patch_size[0])
-        self.img_size = img_size
         self.patch_size = patch_size
-        self.num_patches = num_patches
         
         self.proj = nn.Sequential(
             nn.Conv3d(in_chans, embed_dim // 2, kernel_size=(3, 3, 3), stride=(1, 2, 2), padding=(1, 1, 1)),
@@ -379,19 +375,12 @@ class SpeicalPatchEmbed(nn.Module):
 class PatchEmbed(nn.Module):
     """ Image to Patch Embedding
     """
-    def __init__(self, img_size=224, patch_size=16, in_chans=3, embed_dim=768, std=False):
+    def __init__(self, patch_size=16, in_chans=3, embed_dim=768):
         super().__init__()
-        img_size = to_2tuple(img_size)
         patch_size = to_2tuple(patch_size)
-        num_patches = (img_size[1] // patch_size[1]) * (img_size[0] // patch_size[0])
-        self.img_size = img_size
         self.patch_size = patch_size
-        self.num_patches = num_patches
         self.norm = nn.LayerNorm(embed_dim)
-        if std:
-            self.proj = conv_3xnxn_std(in_chans, embed_dim, kernel_size=patch_size[0], stride=patch_size[0])
-        else:
-            self.proj = conv_1xnxn(in_chans, embed_dim, kernel_size=patch_size[0], stride=patch_size[0])
+        self.proj = conv_1xnxn(in_chans, embed_dim, kernel_size=patch_size[0], stride=patch_size[0])
 
     def forward(self, x):
         B, C, T, H, W = x.shape
@@ -417,7 +406,6 @@ class Uniformer_light(nn.Module):
 
         depth = cfg.UNIFORMER.DEPTH
         num_classes = cfg.MODEL.NUM_CLASSES 
-        img_size = cfg.DATA.TRAIN_CROP_SIZE
         in_chans = cfg.DATA.INPUT_CHANNEL_NUM[0]
         embed_dim = cfg.UNIFORMER.EMBED_DIM
         head_dim = cfg.UNIFORMER.HEAD_DIM
@@ -428,8 +416,6 @@ class Uniformer_light(nn.Module):
         drop_rate = cfg.UNIFORMER.DROPOUT_RATE
         attn_drop_rate = cfg.UNIFORMER.ATTENTION_DROPOUT_RATE
         drop_path_rate = cfg.UNIFORMER.DROP_DEPTH_RATE
-        split = cfg.UNIFORMER.SPLIT
-        std = cfg.UNIFORMER.STD
         prune_ratio = cfg.UNIFORMER.PRUNE_RATIO
         trade_off = cfg.UNIFORMER.TRADE_OFF
 
@@ -438,13 +424,13 @@ class Uniformer_light(nn.Module):
         norm_layer = partial(nn.LayerNorm, eps=1e-6) 
         
         self.patch_embed1 = SpeicalPatchEmbed(
-            img_size=img_size, patch_size=4, in_chans=in_chans, embed_dim=embed_dim[0])
+            patch_size=4, in_chans=in_chans, embed_dim=embed_dim[0])
         self.patch_embed2 = PatchEmbed(
-            img_size=img_size // 4, patch_size=2, in_chans=embed_dim[0], embed_dim=embed_dim[1], std=std)
+            patch_size=2, in_chans=embed_dim[0], embed_dim=embed_dim[1])
         self.patch_embed3 = PatchEmbed(
-            img_size=img_size // 8, patch_size=2, in_chans=embed_dim[1], embed_dim=embed_dim[2], std=std)
+            patch_size=2, in_chans=embed_dim[1], embed_dim=embed_dim[2])
         self.patch_embed4 = PatchEmbed(
-            img_size=img_size // 16, patch_size=2, in_chans=embed_dim[2], embed_dim=embed_dim[3], std=std)
+            patch_size=2, in_chans=embed_dim[2], embed_dim=embed_dim[3])
 
         # class token
         self.cls_token = nn.Parameter(torch.zeros(1, 1, embed_dim[2]))
@@ -463,31 +449,19 @@ class Uniformer_light(nn.Module):
                 dim=embed_dim[1], num_heads=num_heads[1], mlp_ratio=mlp_ratio[1], qkv_bias=qkv_bias, qk_scale=qk_scale,
                 drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]], norm_layer=norm_layer)
             for i in range(depth[1])])
-        if split:
-            self.blocks3 = nn.ModuleList([
-                SplitSABlock(
-                    dim=embed_dim[2], num_heads=num_heads[2], mlp_ratio=mlp_ratio[2], qkv_bias=qkv_bias, qk_scale=qk_scale,
-                    drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]+depth[1]], norm_layer=norm_layer)
-                for i in range(depth[2])])
-            self.blocks4 = nn.ModuleList([
-                SplitSABlock(
-                    dim=embed_dim[3], num_heads=num_heads[3], mlp_ratio=mlp_ratio[2], qkv_bias=qkv_bias, qk_scale=qk_scale,
-                    drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]+depth[1]+depth[2]], norm_layer=norm_layer)
-            for i in range(depth[3])])
-        else:
-            self.blocks3 = nn.ModuleList([
-                EvoSABlock(
-                    dim=embed_dim[2], num_heads=num_heads[2], mlp_ratio=mlp_ratio[3], qkv_bias=qkv_bias, qk_scale=qk_scale,
-                    drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]+depth[1]], norm_layer=norm_layer,
-                    prune_ratio=prune_ratio[2][i], trade_off=trade_off[2][i],
-                    downsample=True if i == depth[2] - 1 else False)
-                for i in range(depth[2])])
-            self.blocks4 = nn.ModuleList([
-                EvoSABlock(
-                    dim=embed_dim[3], num_heads=num_heads[3], mlp_ratio=mlp_ratio[3], qkv_bias=qkv_bias, qk_scale=qk_scale,
-                    drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]+depth[1]+depth[2]], norm_layer=norm_layer,
-                    prune_ratio=prune_ratio[3][i], trade_off=trade_off[3][i])
-            for i in range(depth[3])])
+        self.blocks3 = nn.ModuleList([
+            EvoSABlock(
+                dim=embed_dim[2], num_heads=num_heads[2], mlp_ratio=mlp_ratio[3], qkv_bias=qkv_bias, qk_scale=qk_scale,
+                drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]+depth[1]], norm_layer=norm_layer,
+                prune_ratio=prune_ratio[2][i], trade_off=trade_off[2][i],
+                downsample=True if i == depth[2] - 1 else False)
+            for i in range(depth[2])])
+        self.blocks4 = nn.ModuleList([
+            EvoSABlock(
+                dim=embed_dim[3], num_heads=num_heads[3], mlp_ratio=mlp_ratio[3], qkv_bias=qkv_bias, qk_scale=qk_scale,
+                drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i+depth[0]+depth[1]+depth[2]], norm_layer=norm_layer,
+                prune_ratio=prune_ratio[3][i], trade_off=trade_off[3][i])
+        for i in range(depth[3])])
         self.norm = bn_3d(embed_dim[-1])
         self.norm_cls = nn.LayerNorm(embed_dim[-1])
         
