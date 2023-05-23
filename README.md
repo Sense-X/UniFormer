@@ -9,11 +9,11 @@
    <img src="https://img.shields.io/badge/cs.CV-2201.04676-b31b1b?logo=arxiv&logoColor=red">
 </a>
 
-This repo is the official implementation of:
+### 💬 This repo is the official implementation of:
 - ***TPAMI2023***: [UniFormer: Unifying Convolution and Self-attention for Visual Recognition](https://arxiv.org/abs/2201.09450) 
 - ***ICLR2022***: [UniFormer: Unified Transformer for Efficient Spatiotemporal Representation Learning](https://arxiv.org/abs/2201.04676)
 
-It currently includes code and models for the following tasks:
+### 🤖 It currently includes code and models for the following tasks:
 - [x] [Image Classification](image_classification)
 - [x] [Video Classification](video_classification)
 - [x] [Object Detection](object_detection)
@@ -21,13 +21,13 @@ It currently includes code and models for the following tasks:
 - [x] [Pose Estimation](pose_estimation)
 - [x] **Lightweght Model** (see `exp_light` in each task)
 
-Other popular repos:
+### 🌟 Other popular repos:
 - [UniFormerV2](https://github.com/OpenGVLab/UniFormerV2): The first model to achieve 90% top-1 accuracy on Kinetics-400.
 - [Unmasked Teacher](https://github.com/OpenGVLab/unmasked_teacher): Using only public sources for pre-training in 6 days on 32 A100 GPUs, our scratch-built ViT-L/16 achieves state-of-the-art performances on various video tasks.
 - [Ask-Anything](https://github.com/OpenGVLab/Ask-Anything/tree/main): Ask anything in video and image!
 
 
-## Note!!!!!
+## ⚠️ Note!!!!!
 
 For downstream tasks:
 
@@ -35,7 +35,7 @@ For downstream tasks:
 - We have verified that **Token Labeling can largely help the downstream tasks**. Have a try if you utilize UniFormer for competition or application.
 - The `head_dim` of some models are `32`, which will lead to **large memory cost but little improvement for downstream tasks**. Those models with `head_dim=64` are released released in [image_classification](image_classification).
 
-## Updates
+## 🔥 Updates
 
 
 ***05/19/2023***
@@ -98,13 +98,30 @@ Integrated into [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%9
 
    
 
-## Introduction
+## 📖 Introduction
 
 **UniFormer** (**Uni**fied trans**Former**) is introduce in [arxiv](https://arxiv.org/abs/2201.04676) (more details can be found in [arxiv](https://arxiv.org/abs/2201.09450)), which can seamlessly integrate merits of convolution and self-attention in a concise transformer format. We adopt local MHRA in shallow layers to largely reduce computation burden and global MHRA in deep layers to learn global token relation. 
 
 Without any extra training data, our UniFormer achieves **86.3** top-1 accuracy on ImageNet-1K classification. With only ImageNet-1K pre-training, it can simply achieve state-of-the-art performance in a broad range of downstream tasks. Our UniFormer obtains **82.9/84.8** top-1 accuracy on Kinetics-400/600, and **60.9/71.2** top-1 accuracy on Something-Something V1/V2 video classification tasks. It also achieves **53.8** box AP and **46.4** mask AP on COCO object detection task, 50.8 mIoU on ADE20K semantic segmentation task, and **77.4** AP on COCO pose estimation task. Moreover, we build an efficient UniFormer with a concise hourglass design of token shrinking and recovering, which achieves **2-4×** higher throughput than the recent lightweight models.
 
-![teaser](figures/framework.png)
+<div align=center>
+    <h3> General Framework </h3>
+</div>
+<div align="center">
+    <img src="figures/framework.png" width="80%">
+</div>
+<div align=center>
+    <h3> Efficient Framework </h3>
+</div>
+<div align="center">
+    <img src="figures/efficient_uniformer.png" width="80%">
+</div>
+<div align=center>
+    <h3> Different Downstream Tasks </h3>
+</div>
+<div align="center">
+    <img src="figures/dense_adaption.jpg" width="100%">
+</div>
 
 ## Main results on ImageNet-1K
 
@@ -271,9 +288,9 @@ Please see [pose_estimation](pose_estimation) for more details.
 
 
 
-##  Cite Uniformer
+## ⭐ Cite Uniformer
 
-If you find this repository useful, please use the following BibTeX entry for citation.
+If you find this repository useful, please give us stars and use the following BibTeX entry for citation.
 
 ```latex
 @misc{li2022uniformer,
