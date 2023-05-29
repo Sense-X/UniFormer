@@ -112,13 +112,13 @@ For Multi-node training, please install [submitit](https://github.com/facebookin
 
 | Model       | #Frame | Sampling Stride | FLOPs | Top1 | Model                                                        | Log                                                          | Shell                                                        |
 | ----------- | ------ | --------------- | ----- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| UniFormer-S | 16x3x5  | 4            | 625G   | 98.3 | [google]() | [google]() | [run.sh](./exp/uniformer_s16x4_ucf101_prek400/run.sh)/[config](./exp/uniformer_s16x4_ucf101_prek400/config.yaml) |
+| UniFormer-S | 16x3x5  | 4            | 625G   | 98.3 | [google](https://drive.google.com/file/d/1Ey8JIGcP8G2H0bKxyNnD61lvHV1eerVt/view?usp=sharing) | [google](https://drive.google.com/file/d/1F0pK6VaJOOxtTb1gwT8OxXUuMSN3LGf-/view?usp=sharing) | [run.sh](./exp/uniformer_s16x4_ucf101_prek400/run.sh)/[config](./exp/uniformer_s16x4_ucf101_prek400/config.yaml) |
 
 ### HMDB51
 
 | Model       | #Frame | Sampling Stride | FLOPs | Top1 | Model                                                        | Log                                                          | Shell                                                        |
 | ----------- | ------ | --------------- | ----- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| UniFormer-S | 16x3x5  | 4            | 625G   | 77.5 | [google]() | [google]() | [run.sh](./exp/uniformer_s16x4_hmdb51_prek400/run.sh)/[config](./exp/uniformer_s16x4_hmdb51_prek400/config.yaml) |
+| UniFormer-S | 16x3x5  | 4            | 625G   | 77.5 | [google](https://drive.google.com/file/d/1Es4xtcEvQSomnbp6Eo7TC3JejIwHf5yS/view?usp=sharing) | [google](https://drive.google.com/file/d/1EzTnQrHslHV4wpbGRLVeBvm_HjYeCma_/view?usp=sharing) | [run.sh](./exp/uniformer_s16x4_hmdb51_prek400/run.sh)/[config](./exp/uniformer_s16x4_hmdb51_prek400/config.yaml) |
 
 
 ## Usage
