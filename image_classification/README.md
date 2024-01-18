@@ -98,9 +98,9 @@ Due to the models UniFormer-S/S†/B use `head_dim=32`, which cause much memory 
 
 | Model                   | Top-1       | #Param. | FLOPs | Model                                                        | Log                                                          | Shell                                                        |
 | ----------------------- | ----------- | ------- | ----- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| UniFormer-S             | 83.4 (+0.5) | 22M     | 3.6G  | [google](https://drive.google.com/file/d/17NC5qqAWCT2gI_jY_cJnFTOqRQTSwsoz/view?usp=sharing) | [google](https://drive.google.com/file/d/17K4egnbkwfuhQVA7zZDHf6fFYEJSeaJ_/view?usp=sharing) | [run.sh](exp/uniformer_small_dim64_tl_224/run.sh)   |
-| UniFormer-S†            | 83.6 (+0.2) | 24M     | 4.2G  | [google](https://drive.google.com/file/d/17OfoDWt2_nA0BYN0OuLPpG8mHJDTluQQ/view?usp=sharing) | [google](https://drive.google.com/file/d/179gNIN8QOK1dCpWviB9GmLht80WO6qzT/view?usp=sharing) | [run.sh](exp/uniformer_small_plus_dim64_tl_224/run.sh) |
-| UniFormer-B             | 84.8 (+1.0) | 50M     | 8.3G  | [google](https://drive.google.com/file/d/17MneG9CnZG6zBvXYUr4WUXoTYc4rjJj5/view?usp=sharing) | [google](https://drive.google.com/file/d/179gNIN8QOK1dCpWviB9GmLht80WO6qzT/view?usp=sharing) | [run.sh](exp/uniformer_base_dim64_tl_224/run.sh)    |
+| UniFormer-S             | 83.4 (+0.5) | 22M     | 3.6G  | [google](https://drive.google.com/file/d/17NC5qqAWCT2gI_jY_cJnFTOqRQTSwsoz/view?usp=sharing) | [google](https://drive.google.com/file/d/17K4egnbkwfuhQVA7zZDHf6fFYEJSeaJ_/view?usp=sharing) | [run.sh](token_labeling/exp/uniformer_small_dim64_tl_224/run.sh)   |
+| UniFormer-S†            | 83.6 (+0.2) | 24M     | 4.2G  | [google](https://drive.google.com/file/d/17OfoDWt2_nA0BYN0OuLPpG8mHJDTluQQ/view?usp=sharing) | [google](https://drive.google.com/file/d/179gNIN8QOK1dCpWviB9GmLht80WO6qzT/view?usp=sharing) | [run.sh](token_labeling/exp/uniformer_small_plus_dim64_tl_224/run.sh) |
+| UniFormer-B             | 84.8 (+1.0) | 50M     | 8.3G  | [google](https://drive.google.com/file/d/17MneG9CnZG6zBvXYUr4WUXoTYc4rjJj5/view?usp=sharing) | [google](https://drive.google.com/file/d/179gNIN8QOK1dCpWviB9GmLht80WO6qzT/view?usp=sharing) | [run.sh](token_labeling/exp/uniformer_base_dim64_tl_224/run.sh)    |
 
 ### Large resolution fine-tuning (384x384)
 
