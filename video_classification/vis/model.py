@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 from functools import partial
 from timm.models.layers import trunc_normal_, DropPath, to_2tuple
+from huggingface_hub import PyTorchModelHubMixin
 
 
 def conv_3xnxn(inp, oup, kernel_size=3, stride=3, groups=1):
@@ -236,7 +237,10 @@ class PatchEmbed(nn.Module):
         return x
 
 
-class Uniformer(nn.Module):
+class Uniformer(nn.Module,
+                PyTorchModelHubMixin,
+                library_name = "UniFormer",
+                repo_url = "https://github.com/Sense-X/UniFormer"):
     """ Vision Transformer
     A PyTorch impl of : `An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale`  -
         https://arxiv.org/abs/2010.11929

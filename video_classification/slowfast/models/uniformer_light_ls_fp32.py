@@ -8,6 +8,7 @@ from timm.models.vision_transformer import _cfg
 from timm.models.layers import trunc_normal_, DropPath, to_2tuple
 from .build import MODEL_REGISTRY
 import os
+from huggingface_hub import PyTorchModelHubMixin
 
 import slowfast.utils.logging as logging
 
@@ -420,7 +421,10 @@ class PatchEmbed(nn.Module):
 
 
 @MODEL_REGISTRY.register()
-class Uniformer_light_ls_fp32(nn.Module):
+class Uniformer_light_ls_fp32(nn.Module,
+                              PyTorchModelHubMixin,
+                              library_name = "UniFormer",
+                              repo_url = "https://github.com/Sense-X/UniFormer"):
     """ Vision Transformer
     A PyTorch impl of : `An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale`  -
         https://arxiv.org/abs/2010.11929

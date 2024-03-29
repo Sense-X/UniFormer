@@ -15,6 +15,7 @@ import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 import numpy as np
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+from huggingface_hub import PyTorchModelHubMixin
 
 from mmcv_custom import load_checkpoint
 from mmseg.utils import get_root_logger
@@ -240,7 +241,10 @@ class PatchEmbed(nn.Module):
     
 
 @BACKBONES.register_module()   
-class UniFormer(nn.Module):
+class UniFormer(nn.Module,
+                PyTorchModelHubMixin,
+                library_name = "UniFormer",
+                repo_url = "https://github.com/Sense-X/UniFormer"):
     """ Vision Transformer
     A PyTorch impl of : `An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale`  -
         https://arxiv.org/abs/2010.11929
